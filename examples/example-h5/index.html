@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tsx-open-platform测试</title>
+  </head>
+  <body>
+    <h1>开放平台功能测试</h1>
+
+    <!-- 钉钉jsapi_sdk -->
+    <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.13.42/dingtalk.open.js"></script>
+    <!-- 飞书jsapi_sdk -->
+    <!-- <script type="text/javascript" src="https://lf1-cdn-tos.bytegoofy.com/goofy/lark/op/h5-js-sdk-1.5.15.js"></script> -->
+
+    <script src="../../dist/open-platform.umd.js"></script>
+    <script>
+      const { OpenPlatformFactory } = window.OpenPlatform;
+      console.log('111 OpenPlatform:', window.OpenPlatform);
+      const factory = new OpenPlatformFactory();
+      console.log('222 factory:', factory);
+      const instance = factory.getInstance(0);
+      console.log('333 instance:', instance);
+      if (instance) {
+        instance.init();
+        console.log('444 instance.init');
+        instance.scanCode();
+        console.log('555 instance.scanCode');
+      }
+    </script>
+
+    <!-- <script type="module">
+      import { PlatformFactory } from '../dist/index.esm.js';
+      console.log('111:', PlatformFactory);
+    </script> -->
+  </body>
+</html>
